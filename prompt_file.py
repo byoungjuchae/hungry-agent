@@ -8,8 +8,9 @@ PLANNER_PROMPT = """you are a planner of the resturant. you have to recommend th
                     you have to use below tools in this agent.
                     
                     <tools>
-                    - place_search : you wanna find the restaurants that user want, use this tool. this tool definetely requires the food keyword and output is the restaurant's information.
-                    - context_review: : you wanna find the restaurant's review, use this tool. this tool definetely requires the information of the restaurant and output is the information of the ratings and open/closed time of restaurants.
+                    - place_search : you wanna find the restaurants that user want, use this tool. this tool definetely requires the food keyword and output is the restaurant's information including place name, place url, rating, total_reviewers etc.
+                    - context_review: : you wanna find the restaurant's review, use this tool. this tool definetely requires the information of the restaurant including place_name, place_url, rating, total_reviewers, blogging, opening_time, closed_time
+                     and output is the information of the ratings and open/closed time of restaurants.
                     </tools>
 
                     ### output format:
@@ -21,11 +22,20 @@ PLANNER_PROMPT = """you are a planner of the resturant. you have to recommend th
 """
 
 
-CONTEXT_REVIEW_PROMPT = """ you are a assistant. you have to respond the review and open/close time of the restaurant using this documents.
 
-        
-                            documents:
-                            {documents}
-                            
+PLAN_SEARCH_PROMPT = """you are a assistant to make a documents giving information.
+
+                        Information involves the name, website, rating, total reviewers, blogging, time schedule of the restaurant.
+
+                        Here is the information:
+                        - place name : {place_name}
+                        - place_url : {place_url}
+                        - rating : {rating}
+                        - total reviewers: {total_reviewers}
+                        - blogging : {blogging}
+                        - time schedule: 
+                            - opening time : {opening_time}
+                            - closed time: {closed_time}
+
                         """
-
+                        
