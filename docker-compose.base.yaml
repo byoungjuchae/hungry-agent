@@ -1,0 +1,17 @@
+services:
+  front:
+    image: node:latest
+    volumes:
+      - ./next-ts-css:/home
+    ports:
+      - "3001:3001"
+    tty:
+      true
+  backend:
+    image: hungry:latest
+    volumes:
+      - ./:/home
+    ports:
+      - "8001:8001"
+    tty:
+      true

@@ -33,9 +33,27 @@ PLAN_SEARCH_PROMPT = """you are a assistant to make a documents giving informati
                         - rating : {rating}
                         - total reviewers: {total_reviewers}
                         - blogging : {blogging}
-                        - time schedule: 
-                            - opening time : {opening_time}
-                            - closed time: {closed_time}
-
+                        - time schedule: {time_schedule}
                         """
-                        
+
+LANGUAGE_CHECK_PROMPT = """ you have to chekc the what language user use in the query.
+                    you have to find through the user query.
+
+                    Here is the user query:
+                    {user_query}
+
+
+                    you have to answer only what language use.
+                    ### output
+                    Korean
+                    English
+                    French
+                    etc ...
+                    """                 
+LANGUAGE_PROMPT = """ you are a assistant to translate the input sentences into {language}.
+
+                    Here is the input sentences:
+                    {input_sentences}
+
+                    you have to response only answer.
+                    """
